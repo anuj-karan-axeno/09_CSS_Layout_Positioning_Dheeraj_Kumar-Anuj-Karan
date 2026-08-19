@@ -1,0 +1,16 @@
+@use'./components/_stack_cards.scss';
+@use'./components/plan_cards';
+@use './components/_magazine_flex.scss';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 2em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1280px;
+    margin: auto;
+}

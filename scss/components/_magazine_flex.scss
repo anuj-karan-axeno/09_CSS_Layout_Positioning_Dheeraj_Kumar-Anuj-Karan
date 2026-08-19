@@ -1,0 +1,190 @@
+@use '../abstract/mixins' as mixins;
+@use '../abstract/variables' as variables;
+
+
+.magazine{
+    margin-top: 2em;
+    &__main {
+    @include mixins.center();
+    flex-wrap: wrap;
+    gap: 1em;
+
+    @media (max-width:768px) {
+        flex-direction: column;
+    }
+
+}
+}
+
+.gallery__card {
+
+    width: calc((100% - 1em) / 2);
+    height: 400px;
+    position: relative;
+    @include mixins.center($flexDirection: column, $justifyContent: flex-end, $alignItems: flex-start);
+    padding: 1em;
+    background: #000;
+
+    @media (max-width:768px) {
+        width: 100%;
+    }
+
+
+    &__img {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        opacity: .9;
+
+    }
+
+    &__date,
+    &__text {
+        position: relative;
+        color: variables.$color_light_1;
+        font-weight: 600;
+        z-index: 2;
+        font-size: 1.2em;
+    }
+}
+
+.content-split {
+
+    @include mixins.center($justifyContent: flex-start, $alignItems: flex-start);
+
+    width: 100%;
+    gap: 1em;
+
+    @media (max-width:768px) {
+        flex-direction: column;
+    }
+}
+
+.recent-posts {
+    @include mixins.center($flexDirection: column, $alignItems: flex-start);
+    flex: 1;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1em;
+
+    &__title {
+        margin-top: 1em;
+        font-size: 1.8em;
+    }
+
+    &__post {
+        @include mixins.center();
+        align-items: flex-end;
+
+        position: relative;
+        padding: 1em;
+
+
+        &--large {
+            width: 100%;
+            height: 400px;
+            // background: red;
+        }
+
+        &--small {
+            width: calc((100% - 1em) / 2);
+
+            color: variables.$color_dark_1;
+
+        }
+
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        inset: 0;
+        z-index: -1;
+        position: absolute;
+
+        &--small {
+            width: 100%;
+
+        }
+    }
+
+    &__overlay {
+       
+        z-index: 3;
+        width: 100%;
+        color: variables.$color_light_1;
+        font-weight: 600;
+
+        font-size: 1.2em;
+
+        &--small {
+            color: variables.$color_dark_1;
+             @include mixins.center($flexDirection:column,$alignItems:flex-start);
+        gap: .5em;
+
+
+        }
+    }
+    &__date{
+        font-size: 1em;
+        font-weight: 600;
+    }
+
+
+}
+
+
+.recent-posts__row {
+    @include mixins.center($alignItems: flex-start);
+    gap: 1em;
+    width: 100%;
+    flex-wrap: wrap;
+
+
+}
+
+.content-split__sidebar {
+    width: 400px;
+
+    flex-shrink: 0;
+    @include mixins.center($flexDirection: column, $alignItems: flex-start);
+    gap: 1em;
+
+    @media (max-width:768px) {
+        width: 100%;
+    }
+}
+
+.popular-posts {
+
+    &__title {
+        margin-top: 1em;
+        font-size: 1.8em;
+    }
+
+    &__list {
+        @include mixins.center($flexDirection: column, $alignItems: flex-start);
+        gap: 1em;
+        width: 100%;
+    }
+
+    &__item {
+        @include mixins.center($alignItems: flex-start);
+        position: relative;
+        height: 100px;
+        gap: 1em;
+
+
+    }
+
+    &__image {
+        width: 100px;
+        height: 100%;
+        inset: 0;
+        z-index: -1;
+
+    }
+
+}

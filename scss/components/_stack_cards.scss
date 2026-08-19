@@ -1,0 +1,63 @@
+@use '../abstract/variables' as variables;
+
+$cards: 1, 2, 3, 4;
+
+@for $card from 0 through 3 {
+    .stack-card-#{$card} {
+        z-index: $card;
+        top: 24*$card+px;
+        left: 24*$card+px;
+
+    }
+}
+
+.stack {
+
+    position: relative;
+    height: 500px;
+
+
+    &__card {
+        height: 360px;
+        max-width: 230px;
+        border: 1px solid variables.$color_dark_1;
+        background: variables.$color_light_1;
+        display: flex;
+        flex-direction: column;
+        border-radius: .4em;
+        overflow: hidden;
+        position: absolute;
+        cursor: pointer;
+        transition: top 200ms ease, left 200ms ease, transform 200ms ease;
+        box-shadow: -10px 2px 4px rgba(0, 0, 0, 0.25);
+
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &__text-content {
+            padding: 1em;
+        }
+
+        &__img {
+            width: 100%;
+            height: 60%;
+            object-fit: fill;
+        }
+
+        &__title {
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: .4em;
+
+        }
+
+
+        &__description {
+            font-size: .8rem;
+            font-weight: 400;
+        }
+
+    }
+}

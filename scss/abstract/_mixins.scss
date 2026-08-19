@@ -1,0 +1,158 @@
+@use './variables' as variables;
+
+@mixin center($flexDirection: row, $justifyContent: center, $alignItems: center) {
+    display: flex;
+    flex-direction: $flexDirection;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+@mixin plan-card($themeColor, $buttonBackgroundColor: transparent) {
+    position: relative;
+    border-radius: 0;
+    width: 100%;
+    max-width: 320px;
+    background: variables.$color_light_1;
+    padding: 2em;
+    box-shadow: -10px 4px 10px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+
+    .plan__ribbon {
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        width: 110px;
+        height: 110px;
+        overflow: hidden;
+        z-index: 5;
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            z-index: -1;
+            border: 4px solid darken($themeColor, 20%);
+
+        }
+
+        &::before {
+            top: -2.3px;
+            right: 7.5%;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            transform: rotate(270deg);
+        }
+
+        &::after {
+            bottom: 9.6px;
+            left: -1.77px;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            transform: rotate(-268deg);
+        }
+
+        .Ribbon-span {
+            position: absolute;
+            width: 150px;
+            padding: 8px 0;
+            background-color: $themeColor;
+            color: variables.$color_light_1;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-align: center;
+            transform: rotate(-45deg);
+            left: -32px;
+            top: 22px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+
+    .plan__price {
+        border-radius: 100%;
+        width: fit-content;
+        height: fit-content;
+        padding: .2em;
+        border: 2px solid $themeColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__text {
+            border-radius: 100%;
+            height: 3em;
+            width: 3em;
+            padding: .3em;
+            font-size: 1.8em;
+            font-weight: 600;
+            background: $themeColor;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: variables.$color_light_1;
+
+        }
+
+        &__currency {
+            margin-bottom: .4em;
+            margin-right: .15em;
+            font-size: .8em;
+        }
+    }
+
+    .plan__title {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 1em;
+
+        &__separator {
+            flex: 1;
+            border-color: $themeColor;
+        }
+    }
+
+    .plan__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+    }
+
+    .plan__item {
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+    }
+
+    .plan__icon {
+        font-weight: 900;
+
+        &--check {
+            color: variables.$color_green_1;
+        }
+
+        &--cross {
+            color: variables.$color_red_1;
+        }
+    }
+
+    .plan__button {
+        padding: 1em 6em;
+        border-radius: 2em;
+        background: $buttonBackgroundColor;
+        border: 2px solid $themeColor;
+        color: $themeColor;
+        font-weight: 600;
+        font-size: .8em;
+        @media (max-width:768px) {
+            width: 100%;
+            padding: 1em;
+        }
+    }
+}

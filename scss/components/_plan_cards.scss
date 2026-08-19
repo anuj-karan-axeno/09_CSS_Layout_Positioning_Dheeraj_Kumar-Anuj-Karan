@@ -1,0 +1,27 @@
+@use '../abstract/mixins' as mixins;
+
+.plan {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    background-color: rgb(105, 189, 245);
+    padding: 2em;
+    @media (max-width:992px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__card {
+        &.card-1 {
+            @include mixins.plan-card(#facc15);
+        }
+
+        &.card-2 {
+            @include mixins.plan-card(#a855f7);
+        }
+
+        &.card-3 {
+            @include mixins.plan-card(#22c55e);
+        }
+    }
+}
