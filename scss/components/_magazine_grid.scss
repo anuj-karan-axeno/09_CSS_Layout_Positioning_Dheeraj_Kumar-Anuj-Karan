@@ -1,0 +1,120 @@
+.grid-magazine {
+    margin-top: 4em;
+   
+
+    &__heading,
+    &__section-title {
+        font-size: 2rem;
+    }
+
+    &__header {
+        margin-bottom: 1em;
+    }
+
+    &__top-stories,
+    &__small-stories {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .75em;
+    }
+
+    &__image-story,
+    &__lead-story {
+        display: grid;
+        position: relative;
+        min-height: 175px;
+        overflow: hidden;
+        color: white;
+        background: #111;
+
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        grid-area: 1 / 1;
+        opacity: .72;
+    }
+
+    &__image-content {
+        display: grid;
+        align-content: end;
+        gap: .25em;
+        grid-area: 1 / 1;
+        padding: .75em;
+        z-index: 1;
+        background: linear-gradient(transparent 45%, rgba(0, 0, 0, .78));
+    }
+
+    &__date {
+        font-size: 1rem;
+    }
+
+    &__image-text {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(190px, .85fr);
+        gap: 1em;
+        margin-top: 1.5em;
+    }
+
+    &__recent,
+    &__popular {
+        display: grid;
+        align-content: start;
+        gap: .75em;
+    }
+
+    &__lead-story {
+        min-height: 260px;
+    }
+
+    &__small-story {
+        display: grid;
+        gap: .4em;
+    }
+
+    &__small-image {
+        width: 100%;
+        height: 310px;
+        object-fit: cover;
+    }
+
+    &__small-date {
+        font-size: 1rem;
+    }
+
+    &__small-text {
+        font-size: 1rem;
+        line-height: 1.35;
+    }
+
+    &__popular-item {
+        display: grid;
+        grid-template-columns: 75px 1fr;
+        gap: .6em;
+        align-items: start;
+    }
+
+    &__popular-image {
+        width: 75px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    &__popular-text {
+        font-size: .9rem;
+        line-height: 1.25;
+    }
+
+    @media (max-width: 600px) {
+        &__content {
+            grid-template-columns: 1fr;
+        }
+    }
+}

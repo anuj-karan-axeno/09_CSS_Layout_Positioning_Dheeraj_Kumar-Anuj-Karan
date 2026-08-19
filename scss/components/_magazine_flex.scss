@@ -4,6 +4,23 @@
 
 .magazine{
     margin-top: 2em;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+        margin-bottom: 1.5em;
+    }
+
+    &__heading {
+        font-size: 2rem;
+    }
+
+    &__subtitle {
+        color: #4b5563;
+    }
+
     &__main {
     @include mixins.center();
     flex-wrap: wrap;
@@ -187,4 +204,11 @@
 
     }
 
+}
+
+@media (max-width: 768px) {
+    .magazine__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

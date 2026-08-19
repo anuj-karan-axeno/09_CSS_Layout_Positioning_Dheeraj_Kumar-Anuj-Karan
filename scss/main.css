@@ -652,6 +652,105 @@
   z-index: -1;
 }
 
+.grid-magazine {
+  margin-top: 4em;
+}
+.grid-magazine__heading, .grid-magazine__section-title {
+  font-size: 2rem;
+}
+.grid-magazine__header {
+  margin-bottom: 1em;
+}
+.grid-magazine__top-stories, .grid-magazine__small-stories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75em;
+}
+.grid-magazine__image-story, .grid-magazine__lead-story {
+  display: grid;
+  position: relative;
+  min-height: 175px;
+  overflow: hidden;
+  color: white;
+  background: #111;
+}
+.grid-magazine__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  grid-area: 1/1;
+  opacity: 0.72;
+}
+.grid-magazine__image-content {
+  display: grid;
+  align-content: end;
+  gap: 0.25em;
+  grid-area: 1/1;
+  padding: 0.75em;
+  z-index: 1;
+  background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.78));
+}
+.grid-magazine__date {
+  font-size: 1rem;
+}
+.grid-magazine__image-text {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.grid-magazine__content {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(190px, 0.85fr);
+  gap: 1em;
+  margin-top: 1.5em;
+}
+.grid-magazine__recent, .grid-magazine__popular {
+  display: grid;
+  align-content: start;
+  gap: 0.75em;
+}
+.grid-magazine__lead-story {
+  min-height: 260px;
+}
+.grid-magazine__small-story {
+  display: grid;
+  gap: 0.4em;
+}
+.grid-magazine__small-image {
+  width: 100%;
+  height: 310px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.grid-magazine__small-date {
+  font-size: 1rem;
+}
+.grid-magazine__small-text {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+.grid-magazine__popular-item {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  gap: 0.6em;
+  align-items: start;
+}
+.grid-magazine__popular-image {
+  width: 75px;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.grid-magazine__popular-text {
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+@media (max-width: 600px) {
+  .grid-magazine__content {
+    grid-template-columns: 1fr;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -663,4 +762,25 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   max-width: 1280px;
   margin: auto;
-}/*# sourceMappingURL=main.css.map */
+}
+
+.magazine__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+.magazine__heading {
+  font-size: 2rem;
+}
+.magazine__subtitle {
+  color: #4b5563;
+}
+@media (max-width: 768px) {
+  .magazine__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/*# sourceMappingURL=main.css.map */
